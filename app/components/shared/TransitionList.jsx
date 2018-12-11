@@ -21,7 +21,7 @@ class TransitionList extends Component {
       key: child.key,
       data: { child },
       style: {
-        height: componentHeight,
+        minHeight: componentHeight,
         opacity: 0,
       },
     }));
@@ -34,7 +34,7 @@ class TransitionList extends Component {
       key: child.key,
       data: { child },
       style: {
-        height: spring(componentHeight),
+        minHeight:  spring(componentHeight),
         opacity: spring(1),
       },
     }));
@@ -43,14 +43,14 @@ class TransitionList extends Component {
 
   willEnter() {
     return {
-      height: 0,
+      minHeight: 0,
       opacity: 0,
     };
   }
 
   willLeave() {
     return {
-      height: spring(0),
+      minHeight: spring(0),
       opacity: spring(0),
     };
   }

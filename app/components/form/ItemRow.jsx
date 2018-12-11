@@ -53,10 +53,11 @@ const ItemDivTextArea = styled(TextareaAutosize)`
 
 const ItemActions = styled.div`
   display: flex !important;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   width: 40px;
   margin: 0 !important;
+  padding-top: 7px;
   margin-left: 10px;
 `;
 
@@ -148,7 +149,6 @@ export class ItemRow extends Component {
         )}
         <div className="flex3">
           <ItemDivTextArea
-            maxRows={4}
             name="description"
             contentEditable
             suppressContentEditableWarning
@@ -203,6 +203,7 @@ ItemRow.propTypes = {
   t: PropTypes.func.isRequired,
   hasHandler: PropTypes.bool.isRequired,
   item: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
   removeRow: PropTypes.func.isRequired,
   updateRow: PropTypes.func.isRequired,
 };
