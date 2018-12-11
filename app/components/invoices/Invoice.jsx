@@ -314,6 +314,13 @@ class Invoice extends PureComponent {
               </Field>
             </Row>
             <Row>
+              {invoice.invoiceTitle
+                    ? <Field>
+                <label>{t('invoices:fields:invoiceTitle')}</label>
+                <p>
+                  {invoice.invoiceTitle}
+                </p>
+              </Field> : null}
               <Field>
                 <label>{t('invoices:fields:invoiceID')}</label>
                 <p>

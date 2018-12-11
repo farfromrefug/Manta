@@ -65,6 +65,7 @@ const Heading = styled.h1`
 function Header({ t, invoice, profile, configs }) {
   const { tax, recipient, status } = invoice;
   const { language, accentColor, customAccentColor  } = configs;
+  console.log('invoice', invoice);
   return (
     <InvoiceHeader>
       <LeftColumn>
@@ -92,7 +93,8 @@ function Header({ t, invoice, profile, configs }) {
           accentColor={accentColor}
           customAccentColor={customAccentColor}
         >
-          {t(status=== 'estimate'?'preview:common:estimate':'preview:common:invoice', { lng: language })}
+          {invoice.invoiceTitle
+            ? invoice.invoiceTitle : t(status=== 'estimate'?'preview:common:estimate':'preview:common:invoice', { lng: language })}
         </Heading>
         <h4>
           #

@@ -23,6 +23,7 @@ const currentInvoice = {
   settings: {
     open: false,
     required_fields: {
+      invoiceTitle: false,
       invoiceID: false,
       dueDate: false,
       currency: false,
@@ -35,6 +36,7 @@ const currentInvoice = {
     tax: {},
     currency: 'USD',
     required_fields: {
+      invoiceTitle: false,
       invoiceID: false,
       dueDate: false,
       currency: false,

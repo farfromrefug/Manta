@@ -76,6 +76,7 @@ describe('getInvoiceData', () => {
         open: false,
         required_fields: {
           invoiceID: false,
+          invoiceTitle: false,
           dueDate: false,
           currency: false,
           discount: false,
@@ -93,6 +94,7 @@ describe('getInvoiceData', () => {
         },
         required_fields: {
           invoiceID: false,
+          invoiceTitle: false,
           dueDate: false,
           currency: false,
           discount: false,
@@ -107,6 +109,7 @@ describe('getInvoiceData', () => {
     const invoiceData = getInvoiceData(formData);
     // Include custom invoiceID
     expect(invoiceData).not.toHaveProperty('invoiceID');
+    expect(invoiceData).not.toHaveProperty('invoiceTitle');
     // Include Rows & Recipient Data
     expect(invoiceData).toHaveProperty('rows');
     expect(invoiceData).toHaveProperty('recipient');

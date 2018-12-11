@@ -209,6 +209,7 @@ function setInitialValues() {
         fraction: 2,
       },
       required_fields: {
+        invoiceTitle: false,
         invoiceID: false,
         dueDate: false,
         currency: false,
@@ -269,6 +270,7 @@ function migrateData() {
           },
           required_fields: {
             dueDate: false,
+            invoiceTitle: false,
             currency: false,
             discount: false,
             tax: false,

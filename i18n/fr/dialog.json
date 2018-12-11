@@ -39,6 +39,10 @@
       "title": "ID de facture invalide",
       "message": "ID de facture ne peut pas être vide"
     },
+    "invoiceTitle": {
+      "title": "titre de facture invalide",
+      "message": "titre de facture ne peut pas être vide"
+    },
     "recipient": {
       "empty": {
         "title": "Contact invalide",

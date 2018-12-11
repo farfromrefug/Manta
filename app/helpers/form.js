@@ -8,6 +8,7 @@ import uuidv4 from 'uuid/v4';
 function validateFormData(formData) {
   const {
     invoiceID,
+    invoiceTitle,
     recipient,
     rows,
     dueDate,
@@ -20,6 +21,7 @@ function validateFormData(formData) {
   // Required fields
   const { required_fields } = settings;
   if (!validateInvoiceID(required_fields.invoiceID, invoiceID)) return false;
+  if (!validateInvoiceTitle(required_fields.invoiceTitle, invoiceTitle)) return false;
   if (!validateRecipient(recipient)) return false;
   if (!validateRows(rows)) return false;
   if (!validateDueDate(required_fields.dueDate, dueDate)) return false;
@@ -33,6 +35,7 @@ function validateFormData(formData) {
 function getInvoiceData(formData) {
   const {
     invoiceID,
+    invoiceTitle,
     recipient,
     rows,
     dueDate,
@@ -42,7 +45,7 @@ function getInvoiceData(formData) {
     note,
     settings,
   } = formData;
-  console.log('getInvoiceData', formData);
+  console.log('getInvoiceData', formData, invoiceTitle);
   // Required fields
   const { editMode, required_fields } = settings;
   // Set Initial Value
@@ -74,6 +77,8 @@ function getInvoiceData(formData) {
   }
   // Set InvoiceID
   if (required_fields.invoiceID) invoiceData.invoiceID = invoiceID;
+  // Set InvoiceTitle
+  if (required_fields.invoiceTitle) invoiceData.invoiceTitle = invoiceTitle;
   // Set DueDate
   if (required_fields.dueDate) invoiceData.dueDate = dueDate;
   // Set Currency
@@ -88,6 +93,7 @@ function getInvoiceData(formData) {
   if (required_fields.tax) invoiceData.tax = tax;
   // Set Note
   if (required_fields.note) invoiceData.note = note.content;
+  console.log('getInvoiceData3', invoiceData);
 
   // Return final value
   return Object.assign({}, invoiceData, {
@@ -271,6 +277,20 @@ function validateInvoiceID(isRequired, invoiceID) {
         type: 'warning',
         title: i18n.t('dialog:validation:invoiceID:title'),
         message: i18n.t('dialog:validation:invoiceID:message'),
+      });
+      return false;
+    }
+    return true;
+  }
+  return true;
+}
+function validateInvoiceTitle(isRequired, invoiceTitle) {
+  if (isRequired) {
+    if (!invoiceTitle || invoiceTitle === '') {
+      openDialog({
+        type: 'warning',
+        title: i18n.t('dialog:validation:invoiceTitle:title'),
+        message: i18n.t('dialog:validation:invoiceTitle:message'),
       });
       return false;
     }

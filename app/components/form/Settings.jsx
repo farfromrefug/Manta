@@ -138,6 +138,14 @@ class Settings extends PureComponent {
             </Helper>
 
             <AllSettings>
+            <Setting>
+                <Label>Invoice Title</Label>
+                <Switch
+                  name="invoiceTitle"
+                  checked={required_fields.invoiceTitle}
+                  onChange={this.handleInputChange}
+                />
+              </Setting>
               <Setting>
                 <Label>Invoice ID</Label>
                 <Switch

@@ -35,6 +35,7 @@ class ErrorBoundary extends Component {
     this.state = { hasError: false };
   }
   componentDidCatch(error, info) {
+    console.log('componentDidCatch', error);
     this.setState({ hasError: true });
     openDialog({
       type: 'warning',

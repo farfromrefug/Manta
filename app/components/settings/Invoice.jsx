@@ -90,6 +90,7 @@ class Invoice extends Component {
     const target = event.target;
     const name = target.name;
     const value = target.checked;
+    console.log('handleVisibilityChange', name, value)
     this.setState(
       {
         required_fields: Object.assign({}, this.state.required_fields, {

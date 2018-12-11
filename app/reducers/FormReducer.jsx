@@ -24,6 +24,7 @@ const initialState = {
   discount: {},
   note: {},
   invoiceID: "",
+  invoiceTitle: "",
   // Set default values for currency and tax
   currency: invoiceSettings.currency,
   tax: invoiceSettings.tax,
@@ -119,6 +120,7 @@ const FormReducer = handleActions(
     [ACTION_TYPES.INVOICE_EDIT]: (state, action) => {
       const {
         invoiceID,
+        invoiceTitle,
         recipient,
         rows,
         currency,
@@ -138,6 +140,7 @@ const FormReducer = handleActions(
         rows,
         // Optional Data
         invoiceID: invoiceID !== undefined ? invoiceID : state.invoiceID,
+        invoiceTitle: invoiceTitle !== undefined ? invoiceTitle : state.invoiceTitle,
         currency: currency !== undefined ? currency : state.currency,
         discount: discount !== undefined ? discount : state.discount,
         tax: tax !== undefined ? tax : state.tax,
@@ -156,6 +159,7 @@ const FormReducer = handleActions(
           },
           required_fields: Object.assign({}, state.settings.required_fields, {
             invoiceID: invoiceID !== undefined,
+            invoiceTitle: invoiceTitle !== undefined,
             currency: currency !== state.savedSettings.currency,
             tax: tax !== undefined,
             dueDate: dueDate !== undefined,

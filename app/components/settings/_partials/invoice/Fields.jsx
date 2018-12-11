@@ -10,6 +10,18 @@ function Fields({ t, required_fields, handleVisibilityChange }) {
     </label>,
     <Part key="part">
       <Row>
+      <Field>
+          <label className="itemLabel">{t('invoices:fields:invoiceTitle')}</label>
+          <label className="switch">
+            <input
+              name="invoiceTitle"
+              type="checkbox"
+              checked={required_fields.invoiceTitle}
+              onChange={handleVisibilityChange}
+            />
+            <span className="slider round" />
+          </label>
+        </Field>
         <Field>
           <label className="itemLabel">{t('invoices:fields:invoiceID')}</label>
           <label className="switch">

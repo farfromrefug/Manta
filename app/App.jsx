@@ -51,6 +51,9 @@ class App extends PureComponent {
     ipc.on('menu-form-toggle-currency', () => {
       dispatch(FormActions.toggleField('currency'));
     });
+    ipc.on('menu-form-toggle-title', () => {
+      dispatch(FormActions.toggleField('invoiceTitle'));
+    });
     ipc.on('menu-form-toggle-vat', () => {
       dispatch(FormActions.toggleField('vat'));
     });

@@ -37,7 +37,7 @@ const Invoice = styled.div`
     margin: 0;
   }
   td  p {
-    font-size: 0.9667em !important;
+    font-size: 1.5667em !important;
   }
   .w5 {
     width: 5%;

@@ -5,6 +5,7 @@
   "fields": {
     "client": "Client",
     "invoiceID": "Invoice ID",
+    "invoiceTitle": "Invoice Title",
     "createdDate": "Created On",
     "dueDate": "Due Date",
     "total": "Total Value"
