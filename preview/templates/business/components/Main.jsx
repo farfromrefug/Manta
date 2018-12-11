@@ -45,7 +45,7 @@ const Table = styled.table`
     font-weight: 300;
     line-height: 2.75;
     font-size: 0.7em;
-    border-bottom: 2px solid #ecf1f1;
+    white-space: pre-line;
     &:first-child {
       color: #c4c8cc;
     }
@@ -58,13 +58,27 @@ const Table = styled.table`
       }
     }
   }
+  .item {
+    border-bottom: 2px solid #ecf1f1;
+  }
 `;
 
 const MarkDownDescription = styled(ReactMarkdown)`
-    color: #2c323a;
+    color: #2c323a !important;
     font-weight: 300;
-    line-height: 1.8;
-    font-size: 0.7em;
+    line-height: 2.7 !important;
+    font-size: 0.7em !important;
+    white-space: pre-line;
+    .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+      margin-top: .5rem;
+    }
+    p {
+      color: #2c323a;
+      font-weight: 300;
+      line-height: 2.75;
+      font-size: 0.7em;
+      white-space: pre-line;
+    }
 `;
 
 const InvoiceTotal = styled.tr`
@@ -134,18 +148,18 @@ function Main({ invoice, configs, t }) {
   const itemComponents = invoice.rows.map((row, index) => (
     (row.price === undefined || row.quantity === undefined) ?
     (
-      <tr key={index}>
+      <tr key={index} className="item">
         <td className="w5" />
-        <MarkDownDescription source={row.description} />
+        <td className><MarkDownDescription source={row.description} /></td>
         <td className="w15" />
         <td className="w10" />
         <td className="w15" />
       </tr>)
     :
       (
-        <tr key={index}>
+        <tr key={index} className="item">
           <td className="w5">{padStart(index + 1, 2, 0)}.</td>
-          <td>{row.description}</td>
+          <td className><MarkDownDescription source={row.description} /></td>
           <td className="w15">
             {currencyBefore ? currency : null}{' '}
             {formatNumber(row.price, fraction, separator)}{' '}

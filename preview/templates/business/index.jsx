@@ -16,9 +16,9 @@ const Invoice = styled.div`
   font-family: 'Montserrat';
   ${props =>
     props.baseFontSize &&
-    `
-    font-size: ${props.baseFontSize};
-  `} .label, h4, th {
+    `font-size: ${props.baseFontSize};
+  `} 
+  .label, h4, th {
     font-weight: 500;
     font-size: 0.66667em;
     text-transform: uppercase;
@@ -34,8 +34,10 @@ const Invoice = styled.div`
     font-weight: 300;
     font-size: 0.66667em;
     color: #2c323a;
-    line-height: 1.75;
     margin: 0;
+  }
+  td  p {
+    font-size: 0.9667em !important;
   }
   .w5 {
     width: 5%;
