@@ -3,7 +3,7 @@ import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 
 const _withDraggable = ComposedComponent => props => (
-  <Draggable draggableId={props.item.id}>
+  <Draggable draggableId={props.item.id} index={props.index}>
     {(provided, snapshot) => {
       // Patched onMouseDown, make inputs selectable
       const onMouseDown = event => {
