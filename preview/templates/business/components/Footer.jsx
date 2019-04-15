@@ -11,10 +11,15 @@ const InvoiceFooter = styled.div`
     padding-bottom: 0.83333em;
     border-bottom: 4px solid #efefd1;
   }
+  .footer {
+    padding-top: 0.83333em;
+    border-top: 4px solid #efefd1;
+  }
   ${props =>
     props.customAccentColor &&
     `
     h4 { border-bottom: 4px solid ${props.accentColor}; }
+    .footer { border-top: 4px solid ${props.accentColor}; }
   `};
 `;
 
@@ -26,8 +31,7 @@ function Footer({ t, invoice, configs }) {
       accentColor={accentColor}
       customAccentColor={customAccentColor}
     >
-      <h4>{ t('preview:common:notice', {lng: language}) }</h4>
-      <ReactMarkdown source={invoice.note} />
+      <ReactMarkdown className="footer" source={invoice.note} escapeHtml={false} />
     </InvoiceFooter>
   ) : null;
 }
