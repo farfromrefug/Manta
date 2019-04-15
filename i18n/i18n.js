@@ -1,5 +1,5 @@
 import i18n from 'i18next';
-import { reactI18nextModule } from 'react-i18next';
+import { initReactI18next } from 'react-i18next';
 
 const appConfig = require('electron').remote.require('electron-settings');
 const defaultLanguage = appConfig.get('general.language');
@@ -17,7 +17,7 @@ import urPK from './ur-PK';
 import vi from './vi';
 import zhCN from './zh-CN';
 
-i18n.use(reactI18nextModule).init({
+i18n.use(initReactI18next).init({
   lng: defaultLanguage,
   fallbackLng: 'en',
   debug: isDev,
